@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'products',
     'sales',
     'profiles',
+    'Report',
     
 ]
 CRISPY_TEMPLATE_PACK="bootstrap"
