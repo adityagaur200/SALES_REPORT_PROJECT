@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from products.models import product
 from customers.models import Customer
 from profiles.models import Profile
@@ -30,7 +31,9 @@ class Sale(models.Model):
 
     def __str__(self):
         return f"AMOUNT:{self.Total_Price}"
-    
+
+    def get_absolute_url(self):
+        return reverse("sales:detail",kwargs={'pk':self.pk})
     def save(self,*args,**kwargs):
         if self.Transaction_id == "":
             self.Transaction_id = generate_code()
